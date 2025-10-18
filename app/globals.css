@@ -1,0 +1,496 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens from emerald to deep blue theme */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.4 0.01 240);
+  --card: oklch(0.98 0.005 240);
+  --card-foreground: oklch(0.4 0.01 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.4 0.01 240);
+  --primary: oklch(0.35 0.12 240);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0.005 240);
+  --secondary-foreground: oklch(0.4 0.01 240);
+  --muted: oklch(0.96 0.005 240);
+  --muted-foreground: oklch(0.5 0.01 240);
+  --accent: oklch(0.45 0.15 220);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.005 240);
+  --input: oklch(0.97 0.005 240);
+  --ring: oklch(0.35 0.12 240 / 0.5);
+  --chart-1: oklch(0.35 0.12 240);
+  --chart-2: oklch(0.45 0.15 220);
+  --chart-3: oklch(0.577 0.245 27.325);
+  --chart-4: oklch(0.55 0.18 200);
+  --chart-5: oklch(0.4 0.1 260);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.97 0.005 240);
+  --sidebar-foreground: oklch(0.4 0.01 240);
+  --sidebar-primary: oklch(0.35 0.12 240);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.45 0.15 220);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.92 0.005 240);
+  --sidebar-ring: oklch(0.35 0.12 240 / 0.5);
+}
+
+.dark {
+  /* Updated dark mode tokens to complement deep blue theme */
+  --background: oklch(0.06 0.01 240);
+  --foreground: oklch(0.95 0.005 240);
+  --card: oklch(0.1 0.01 240);
+  --card-foreground: oklch(0.95 0.005 240);
+  --popover: oklch(0.1 0.01 240);
+  --popover-foreground: oklch(0.95 0.005 240);
+  --primary: oklch(0.55 0.15 240);
+  --primary-foreground: oklch(0.06 0.01 240);
+  --secondary: oklch(0.14 0.01 240);
+  --secondary-foreground: oklch(0.95 0.005 240);
+  --muted: oklch(0.14 0.01 240);
+  --muted-foreground: oklch(0.7 0.005 240);
+  --accent: oklch(0.6 0.18 220);
+  --accent-foreground: oklch(0.06 0.01 240);
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(0.95 0.005 240);
+  --border: oklch(0.14 0.01 240);
+  --input: oklch(0.14 0.01 240);
+  --ring: oklch(0.55 0.15 240 / 0.5);
+  --chart-1: oklch(0.55 0.15 240);
+  --chart-2: oklch(0.6 0.18 220);
+  --chart-3: oklch(0.6 0.2 25);
+  --chart-4: oklch(0.65 0.2 200);
+  --chart-5: oklch(0.5 0.12 260);
+  --sidebar: oklch(0.1 0.01 240);
+  --sidebar-foreground: oklch(0.95 0.005 240);
+  --sidebar-primary: oklch(0.55 0.15 240);
+  --sidebar-primary-foreground: oklch(0.06 0.01 240);
+  --sidebar-accent: oklch(0.6 0.18 220);
+  --sidebar-accent-foreground: oklch(0.06 0.01 240);
+  --sidebar-border: oklch(0.14 0.01 240);
+  --sidebar-ring: oklch(0.55 0.15 240 / 0.5);
+}
+
+/* Added custom animations and effects for enhanced visual appeal */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px oklch(0.35 0.12 240 / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px oklch(0.35 0.12 240 / 0.5);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes tilt {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes morphing {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+@keyframes particleFloat {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  66% {
+    transform: translateY(5px) translateX(-5px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glow-effect {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent, oklch(0.35 0.12 240 / 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.tilt-effect {
+  animation: tilt 2s ease-in-out infinite;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.morphing-blob {
+  animation: morphing 8s ease-in-out infinite;
+}
+
+.particle-float {
+  animation: particleFloat 4s ease-in-out infinite;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-effect-dark {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.button-hover-effect {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.button-hover-effect::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.button-hover-effect:hover::before {
+  left: 100%;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px oklch(0.35 0.12 240 / 0.5), 0 0 20px oklch(0.35 0.12 240 / 0.3), 0 0 30px
+    oklch(0.35 0.12 240 / 0.2);
+}
+
+.text-glow-accent {
+  text-shadow: 0 0 10px oklch(0.45 0.15 220 / 0.5), 0 0 20px oklch(0.45 0.15 220 / 0.3), 0 0 30px
+    oklch(0.45 0.15 220 / 0.2);
+}
+
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animate-delay-500 {
+  animation-delay: 0.5s;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px oklch(0.35 0.12 240 / 0.3), 0 10px 40px oklch(0.35 0.12 240 / 0.2);
+}
+
+.shadow-glow-accent {
+  box-shadow: 0 0 20px oklch(0.45 0.15 220 / 0.3), 0 10px 40px oklch(0.45 0.15 220 / 0.2);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .fixed.pointer-events-none.z-50 {
+    display: none !important;
+  }
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Por defecto, oculta bloques exclusivos del modo 1 hoja */
+.onepage-only { display: none; }
+
+/* Estilos para impresión */
+@media print {
+  /* Tipografía y escala general para PDF elegante */
+  body {
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji" !important;
+    line-height: 1.35;
+    font-size: 12pt;
+  }
+
+  /* Oculta elementos marcados explícitamente */
+  .print\\:hidden { display: none !important; }
+
+  /* Simplifica fondo para ahorrar tinta y mejorar legibilidad */
+  html, body {
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Quita fondos decorativos y sombras que no imprimen bien */
+  .bg-card\/50, .bg-card\/90, .backdrop-blur, .backdrop-blur-sm, .shadow, .shadow-xl, .shadow-glow, .shadow-glow-accent, .glass-effect, .glass-effect-dark {
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Oculta navegación, header, footer y partículas si están presentes en el DOM */
+  header, nav, footer, .particles, .particle-background, [data-sonner-toaster] {
+    display: none !important;
+  }
+
+  /* Maximiza ancho del contenido imprimible */
+  .printable {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 8mm !important;
+  }
+
+  /* Tamaño de página y márgenes razonables */
+  @page {
+    /* Carta (Letter): 8.5in x 11in */
+    size: Letter;
+    margin: 0.6in 0.6in 0.7in 0.6in;
+  }
+
+  /* Evitar cortes abruptos en tarjetas y secciones clave */
+  .avoid-break, .avoid-break * {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Titulares más nítidos en impresión */
+  h1, h2, h3, .text-4xl, .text-3xl, .text-2xl {
+    color: #000 !important;
+  }
+
+  /* Quitar saturación de colores chillones en bullets */
+  .bg-primary, .text-primary, .border-primary, .border-primary\/60 {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ============ Modo 1 hoja ============ */
+  html.onepage-print body {
+    font-size: 10pt;
+    line-height: 1.25;
+  }
+  html.onepage-print .printable {
+    padding: 0 6mm !important;
+  }
+  html.onepage-print .onepage-hide { display: none !important; }
+  html.onepage-print .onepage-compact { padding: 8px 12px !important; margin-bottom: 8px !important; }
+  html.onepage-print .onepage-truncate-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  html.onepage-print .grid { gap: 10px !important; }
+  html.onepage-print .grid-cols-1.print\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  html.onepage-print .onepage-only { display: block !important; }
+  html.onepage-print .cv-grid { grid-template-columns: 220px 1fr !important; gap: 12px !important; }
+  html.onepage-print .text-lg { font-size: 11pt !important; }
+  html.onepage-print .text-xl { font-size: 12pt !important; }
+  html.onepage-print h1 { font-size: 18pt !important; margin-bottom: 6px !important; }
+  html.onepage-print h2, html.onepage-print .text-2xl { font-size: 12pt !important; margin-bottom: 6px !important; }
+  html.onepage-print p, html.onepage-print li, html.onepage-print .text-sm { font-size: 9.5pt !important; }
+}
